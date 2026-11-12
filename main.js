@@ -17,12 +17,14 @@ import { createAchievements, ACHIEVEMENTS } from './src/achievements.js';
 import { createSecret, SECRET_POS } from './src/secret.js';
 import { createScenery } from './src/scenery.js';
 import { createPostcardUI } from './src/postcard.js';
+import { createTouchControls, isTouchDevice } from './src/touch.js';
 
 // ---------------------------------------------------------------------------
 // Configuração básica
 // ---------------------------------------------------------------------------
 const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+// no celular, menos pixels por ponto deixa o jogo bem mais leve
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, isTouchDevice() ? 1.25 : 2));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 document.body.appendChild(renderer.domElement);
@@ -120,7 +122,11 @@ let photoMode = false;
 let titleMode = true;
 const title = document.createElement('div');
 title.className = 'title-screen';
-title.innerHTML = '<h1>Pokémocean</h1><p>um passeio tranquilo pelo mar</p><span>aperte qualquer tecla ou clique para começar</span>';
+title.innerHTML = '<h1>Pokémocean</h1><p>um passeio tranquilo pelo mar</p><span>' + (isTouchDevice() ? 'toque para começar' : 'aperte qualquer tecla ou clique para começar') + '</span><button type="button" class="reset-all" title="Apaga diário, garrafas, fotos, conquistas e o presente">↺ recomeçar do zero</button>';
+title.querySelector('.reset-all').addEventListener('pointerdown', (e) => {
+  e.stopPropagation();
+  if (confirm('Recomeçar do zero? Isso apaga o diário, os shinies, as garrafas, as fotos, as conquistas e a Lapras dourada.')) resetEverything();
+});
 document.body.appendChild(title);
 controls.enabled = false;
 function startGame() {
@@ -133,6 +139,7 @@ function startGame() {
   controls.target.set(p.x, 8, p.z);
   camera.position.set(p.x - Math.sin(yaw) * 55, 26, p.z - Math.cos(yaw) * 55);
   ui.setVisible(true);
+  touchCtl.setPlaying(true);
 }
 title.addEventListener('pointerdown', startGame);
 ui.setVisible(false);
@@ -187,9 +194,10 @@ const lastLaprasPos = new THREE.Vector3();
 
 function updateLapras(t, dt) {
   const o = lapras.obj;
-  const fwd = photoMode ? 0 : axis(['w', 'arrowup'], ['s', 'arrowdown']);
-  const turn = photoMode ? 0 : axis(['a', 'arrowleft'], ['d', 'arrowright']);
-  const boost = keys.has('shift') ? 2 : 1;
+  const fwd = photoMode ? 0 : axis(['w', 'arrowup'], ['s', 'arrowdown']) || touchCtl.input.fwd;
+  const turn = photoMode ? 0 : axis(['a', 'arrowleft'], ['d', 'arrowright']) || touchCtl.input.turn;
+  const boosting = keys.has('shift') || touchCtl.input.boost;
+  const boost = boosting ? 2 : 1;
   const max = lapras.maxSpeed * lapras.speedMul;
 
   // aceleração / desaceleração suave
@@ -215,7 +223,7 @@ function updateLapras(t, dt) {
   }
 
   // mergulho: segurando Espaço a Lapras desce; o fôlego dura ~10 s e recarrega na superfície
-  const wantsDive = !photoMode && keys.has(' ') && lapras.breath > 0;
+  const wantsDive = !photoMode && (keys.has(' ') || touchCtl.input.dive) && lapras.breath > 0;
   const floor = seabedHeight(o.position.x, o.position.z) + 8 - LAPRAS_Y;
   const targetDepth = wantsDive ? Math.max(-28, floor) : 0;
   const prevDepth = lapras.depth;
@@ -242,7 +250,7 @@ function updateLapras(t, dt) {
   if (acts?.Nadar) {
     acts.Nadar.weight = moving;
     acts.Parado.weight = 1 - moving;
-    acts.Nadar.timeScale = 0.7 + moving * 0.6 * (keys.has('shift') ? 1.5 : 1);
+    acts.Nadar.timeScale = 0.7 + moving * 0.6 * (boosting ? 1.5 : 1);
     o.userData.mixer.update(dt);
   }
 
@@ -289,8 +297,8 @@ function togglePhotoMode(force) {
 
 function updatePhotoCamera(dt) {
   if (!photoMode) return;
-  const f = axis(['w', 'arrowup'], ['s', 'arrowdown']);
-  const r = axis(['d', 'arrowright'], ['a', 'arrowleft']);
+  const f = axis(['w', 'arrowup'], ['s', 'arrowdown']) || touchCtl.input.fwd;
+  const r = axis(['d', 'arrowright'], ['a', 'arrowleft']) || -touchCtl.input.turn;
   const u = axis(['e', ' '], ['q', 'control']);
   if (!f && !r && !u) return;
   const speed = 60 * (keys.has('shift') ? 5 : 1) * dt;
@@ -454,6 +462,21 @@ function trackAchievements(t, dt) {
   }
 }
 
+// Recomeçar do zero: apaga tudo que o jogo guarda no navegador e recarrega.
+// (os ajustes dos controles de toque continuam)
+function resetEverything() {
+  try {
+    Object.keys(localStorage).filter((k) => k.startsWith('pokemocean-') && k !== 'pokemocean-toque').forEach((k) => localStorage.removeItem(k));
+  } catch { /* sem armazenamento: nada a apagar */ }
+  location.reload();
+}
+
+// controles de toque (celular)
+const touchCtl = createTouchControls({
+  load, save,
+  onMenu: (k) => window.dispatchEvent(new KeyboardEvent('keydown', { key: k, code: 'Key' + k.toUpperCase() })),
+});
+
 // garrafas, aurora e arco-íris
 const extras = createExtras(scene, camera, {
   onMeteor: () => ach.unlock('estrela'),
@@ -587,6 +610,7 @@ const HELP = [
   '  time                     mostra a hora e o clima atuais',
   '  photo                    liga/desliga o modo foto (ou tecla P)',
   '  dex | dex reset          abre o diário / apaga avistamentos e shinies',
+  '  reset tudo               recomeça do zero (diário, garrafas, fotos, conquistas...)',
   '  galeria                  abre a galeria de fotos (ou tecla G)',
   '  garrafas                 relê as mensagens que você já achou',
   '  conquistas               abre as conquistas (ou tecla K)',
@@ -659,6 +683,10 @@ function runCommand(raw) {
     case 'conquistas':
       refreshAch(); ui.toggleAchievements(true);
       ui.print(`Conquistas: ${ach.unlocked.size}/${ACHIEVEMENTS.length}. Tecla K abre e fecha.`);
+      break;
+    case 'reset': case 'recomecar':
+      if (a !== 'tudo') { ui.print('Para apagar todo o progresso, digite: reset tudo (ou use o botão na tela inicial).'); break; }
+      resetEverything();
       break;
     case 'revelar':
       secret.unlock();

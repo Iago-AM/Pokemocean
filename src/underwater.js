@@ -154,7 +154,8 @@ export function createUnderwater(scene, camera) {
     for (let i = 0; i < p.count; i++) p.setX(i, p.getX(i) * (1 - p.getY(i)));
   }
   // algas altas: menos numerosas, quadrado grande (dá para ver de longe)
-  vegetation({ blade: kelpBlade, count: 7000, span: 1500, height: [8, 24], width: 1.0, sway: 3.5, colorA: [0.16, 0.36, 0.13], colorB: [0.3, 0.5, 0.2], minMeadow: 0.55 });
+  const mobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  vegetation({ blade: kelpBlade, count: mobile ? 3000 : 7000, span: 1500, height: [8, 24], width: 1.0, sway: 3.5, colorA: [0.16, 0.36, 0.13], colorB: [0.3, 0.5, 0.2], minMeadow: 0.55 });
   // tufo: 4 folhas cruzadas e um pouco abertas (parece um "montinho" de grama, não folhas soltas)
   const tuftParts = [];
   for (let k = 0; k < 4; k++) {
@@ -166,7 +167,7 @@ export function createUnderwater(scene, camera) {
   }
   const tuft = mergeGeometries(tuftParts);
   // grama marinha: tufos densos concentrados nos prados (o chão embaixo deles também é verde)
-  vegetation({ blade: tuft, count: 42000, span: 640, height: [2.5, 5.5], width: 1.5, sway: 0.9, colorA: [0.24, 0.44, 0.16], colorB: [0.42, 0.6, 0.24], minMeadow: 0.42 });
+  vegetation({ blade: tuft, count: mobile ? 16000 : 42000, span: 640, height: [2.5, 5.5], width: 1.5, sway: 0.9, colorA: [0.24, 0.44, 0.16], colorB: [0.42, 0.6, 0.24], minMeadow: 0.42 });
 
   function updateVegetation(t) {
     uTime.value = t;

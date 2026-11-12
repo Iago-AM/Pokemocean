@@ -38,6 +38,14 @@ No canto inferior direito, uma bússola pequena mostra para onde a câmera olha 
 
 No **modo foto** a interface some e a câmera fica solta: WASD move, Q/E desce e sobe, Shift acelera, botão direito do mouse arrasta.
 
+## No celular
+
+O jogo funciona no celular e no tablet (de preferência deitado). Encoste o dedo na metade esquerda da tela para aparecer o **joystick**; à direita ficam os botões de **mergulhar** e **acelerar** (segure). Eles somem sozinhos alguns segundos depois do último toque. Arrastar o dedo no resto da tela gira a câmera. No canto de cima há atalhos para diário, mapa, conquistas, galeria e modo foto, e a **engrenagem** deixa escolher se os controles ficam sempre visíveis, somem sozinhos ou ficam desligados, além do tamanho e do lado do joystick.
+
+## Recomeçar do zero
+
+Na tela inicial há um botão pequeno no canto, **↺ recomeçar do zero**, que apaga diário, shinies, garrafas, fotos, conquistas e a Lapras dourada. O mesmo pelo console: `reset tudo`. (O `dex reset` apaga só o diário, os shinies e as conquistas.)
+
 ## Comandos (tecla T)
 
 | Comando | O que faz |
@@ -110,6 +118,7 @@ Chegar perto de um Pokémon registra ele no diário (tecla J). O progresso fica 
 - `src/music.js`: a música gerada no navegador.
 - `src/achievements.js`: as conquistas.
 - `src/secret.js`: a ilha secreta e a festa final.
+- `src/touch.js`: controles de toque (joystick, botões e ajustes).
 - `src/postcard.js`: o cartão-postal com moldura.
 - `src/scenery.js`: ilhotas de pedra, pontes, praia do Monte e conchas no fundo (peças em `assets/cenario`, separadas e otimizadas no Blender; a ponte de cordas foi feita no Blender).
 - `src/ui.js` e `style.css`: interface na tela e console.
