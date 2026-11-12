@@ -1,0 +1,15 @@
+Gritos dos Pokémon
+==================
+
+Coloque aqui um arquivo de som por Pokémon, com o nome igual ao id abaixo
+(mp3, ogg ou wav). O jogo encontra sozinho: toca quando você avista o
+Pokémon pela primeira vez, quando ele vira seu companheiro, e com o
+comando "play <id>" (tecla T).
+
+Ids: lapras, magikarp, mew, psyduck, totodile, popplio, sobble, chinchou,
+froakie, wiglett, clodsire, keldeo, gyarados, rayquaza, groudon, hooh,
+articuno, zapdos, moltres, jirachi
+
+Exemplo: cries/psyduck.mp3
+
+Lembre de anotar a fonte e a licença de cada som no README.

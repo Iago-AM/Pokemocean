@@ -1,0 +1,54 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- Pokémocean ---
+# backups em zip e pacotes originais (as peças usadas estão em assets/cenario)
+assets/Usados/
+assets/70_stylized_rocks/
+assets/stone_pack/
+assets/tropical_plants_pack_m02p/
+assets/stylized_palm_tree_set/
+assets/stylized_bush/
+assets/stylized_tropical_grass/
+assets/wooden_bridge_pack/
+assets/cute_little_star/
+assets/seashell/
+# modelos tirados do jogo (extraídos de jogos oficiais ou sem licença livre): não publicar
+assets/lugia-official/
+assets/dragonite-official/
+assets/greninja-official/
+assets/barraskewda/
+assets/ocean_buoy/
+assets/Pokemon/
+assets/Articuno/
+assets/Kyogre/
+assets/Rayquaza/
+assets/tentacool/
+assets/vaporeon/
+assets/wingull/
+assets/Glaceon/
+assets/Ilha_Pequena/
+# arquivos de teste locais
+_teste_modelos.html

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Totodile
+* source:	https://sketchfab.com/3d-models/totodile-5bb89a18fe9341b9ba75a77ff1681e91
+* author:	Squirmy Worm (https://sketchfab.com/squirmyworm064)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Totodile" (https://sketchfab.com/3d-models/totodile-5bb89a18fe9341b9ba75a77ff1681e91) by Squirmy Worm (https://sketchfab.com/squirmyworm064) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

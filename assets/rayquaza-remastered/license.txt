@@ -1,0 +1,10 @@
+Model Information:
+* title:	Rayquaza - Remastered
+* source:	https://sketchfab.com/3d-models/rayquaza-remastered-cc5f5189dcaf47e9a4c4ba4e77d183af
+* author:	Master Galanodel (https://sketchfab.com/Master_Galanodel)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+(arquivo criado a partir da página do modelo no Sketchfab, pois o download não trazia license.txt)

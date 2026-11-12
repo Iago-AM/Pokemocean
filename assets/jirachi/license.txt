@@ -1,0 +1,11 @@
+Model Information:
+* title:	Jirachi
+* source:	https://sketchfab.com/3d-models/jirachi-4cf313e8ba764976bec2c12e802a6e8d
+* author:	Squirmy Worm (https://sketchfab.com/squirmyworm064)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Jirachi" (https://sketchfab.com/3d-models/jirachi-4cf313e8ba764976bec2c12e802a6e8d) by Squirmy Worm (https://sketchfab.com/squirmyworm064) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Clodsire
+* source:	https://sketchfab.com/3d-models/clodsire-f9f86eae289a46ac85feca7e8bd52757
+* author:	Squirmy Worm (https://sketchfab.com/squirmyworm064)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Clodsire" (https://sketchfab.com/3d-models/clodsire-f9f86eae289a46ac85feca7e8bd52757) by Squirmy Worm (https://sketchfab.com/squirmyworm064) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

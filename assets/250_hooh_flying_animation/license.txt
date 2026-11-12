@@ -1,0 +1,11 @@
+Model Information:
+* title:	#250 Hooh flying animation
+* source:	https://sketchfab.com/3d-models/250-hooh-flying-animation-03ecc28f369c49a3bf7a19a78be4c140
+* author:	kaiyi97 (https://sketchfab.com/kaiyi97)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "#250 Hooh flying animation" (https://sketchfab.com/3d-models/250-hooh-flying-animation-03ecc28f369c49a3bf7a19a78be4c140) by kaiyi97 (https://sketchfab.com/kaiyi97) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

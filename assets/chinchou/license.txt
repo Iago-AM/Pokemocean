@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chinchou
+* source:	https://sketchfab.com/3d-models/chinchou-1cb12e74ab6f48079da5a7c4f8eedd65
+* author:	Isabel Cotta Pérez (https://sketchfab.com/cicutta)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chinchou" (https://sketchfab.com/3d-models/chinchou-1cb12e74ab6f48079da5a7c4f8eedd65) by Isabel Cotta Pérez (https://sketchfab.com/cicutta) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

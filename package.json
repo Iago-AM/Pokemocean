@@ -1,0 +1,17 @@
+{
+  "name": "pokemocean",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "three": "^0.141.0",
+    "three-mesh-bvh": "^0.5.23"
+  }
+}

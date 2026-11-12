@@ -1,0 +1,11 @@
+Model Information:
+* title:	Froakie
+* source:	https://sketchfab.com/3d-models/froakie-946f56feb0244e45b2c86bb7058bab26
+* author:	Squirmy Worm (https://sketchfab.com/squirmyworm064)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Froakie" (https://sketchfab.com/3d-models/froakie-946f56feb0244e45b2c86bb7058bab26) by Squirmy Worm (https://sketchfab.com/squirmyworm064) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
